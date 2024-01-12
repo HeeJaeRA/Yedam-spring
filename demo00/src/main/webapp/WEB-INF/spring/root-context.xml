@@ -12,9 +12,9 @@
 	<!-- datasource connection pool -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 	  <property name="driverClassName" value="${dbDriver}" />
-	  <property name="jdbcUrl"    value="${dbUrl}" />
-	  <property name="username"   value="${id}" />
-	  <property name="password"   value="${pwd}" />
+	  <property name="jdbcUrl" value="${dbUrl}" />
+	  <property name="username" value="${id}" />
+	  <property name="password" value="${pwd}" />
 	</bean>
 	
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" 
