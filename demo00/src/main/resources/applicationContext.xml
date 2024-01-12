@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	
+	<!-- 아래의 삼성TV안에서 실행되는거기때문에 스피커를 더 위에 적어주는거임 -->
+	<!-- <bean id="speaker" class="com.yedam.app.spring.Speaker" /> -->
+	
+	<!-- 	이름(지은거)과 해당 클래스 작성한거임-->
+	<!-- <bean id="tv" class="com.yedam.app.spring.SamsungTV"> -->
+		<!-- 위의 스피커를 삼성TV가 불려나갈때 사용할 수 있게 하겠다 -->
+<!-- 	<constructor-arg ref="speaker" /> --> <!-- 1.생성자방식 -->
+ 		<!-- <property name="speaker" ref="speaker" /> --> <!-- 2.setter방식 -->
+	<!-- </bean> -->
+	
+	<!-- 3.하위에 존재하는 모든 어노테이션을 읽어들임 @Component를 읽어들일곳에 작성해서 import해야함-->
+	<context:component-scan base-package="com.yedam.app.spring"/>
+</beans>
