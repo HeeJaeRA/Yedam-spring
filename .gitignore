@@ -18,6 +18,7 @@ local.properties
 # ignore properties file
 database.properties
 log4jdbc.log4j2.properties
+*.properties
 
 # External tool builders
 .externalToolBuilders/
