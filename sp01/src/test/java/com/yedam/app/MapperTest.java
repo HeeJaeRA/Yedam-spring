@@ -7,8 +7,10 @@ import static org.junit.Assert.assertTrue;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -18,6 +20,7 @@ import com.yedam.app.emp.service.EmpVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/root-context.xml")
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MapperTest {
 
 	@Autowired
@@ -25,14 +28,14 @@ public class MapperTest {
 
 	// 전체조회
 	@Test
-	public void selectAll() {
+	public void test1_selectAll() {
 		List<EmpVO> list = empMapper.selectEmpList();
 		assertTrue(!list.isEmpty());
 	}
 
 	// 단건조회
 	@Test
-	public void selectInfo() {
+	public void test2_selectInfo() {
 		EmpVO empVO = new EmpVO();
 		empVO.setEmployeeId(100);
 		EmpVO findVO = empMapper.selectEmpInfo(empVO);
@@ -41,7 +44,7 @@ public class MapperTest {
 
 	// 등록
 	@Test
-	public void insertInfo() {
+	public void test3_insertInfo() {
 		EmpVO empVO = new EmpVO();
 		empVO.setLastName("Hong");
 		empVO.setEmail("kdon@google.com"); // 유니크값
@@ -54,7 +57,7 @@ public class MapperTest {
 
 	// 넘긴 값 수정
 	@Test
-	public void updateInfo() {
+	public void test4_updateInfo() {
 		EmpVO empVO = new EmpVO();
 		empVO.setEmployeeId(207);
 		EmpVO findVO = empMapper.selectEmpInfo(empVO);
@@ -65,7 +68,7 @@ public class MapperTest {
 
 	// 파라미터 2개 수정
 	@Test
-	public void updateInfoDynamic() {
+	public void test5_updateInfoDynamic() {
 		EmpVO empVO = new EmpVO();
 		empVO.setEmployeeId(207);
 		empVO.setSalary(5);
@@ -76,7 +79,7 @@ public class MapperTest {
 	
 	// 삭제
 	@Test
-	public void deleteInfo() {
+	public void test6_deleteInfo() {
 		int result = empMapper.deleteEmpInfo(207);
 		assertNotEquals(result, 0);
 	}
