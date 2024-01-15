@@ -20,6 +20,7 @@ import com.yedam.app.emp.service.EmpVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/root-context.xml")
+// test 순서 메소드 이름 오름차순
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MapperTest {
 
