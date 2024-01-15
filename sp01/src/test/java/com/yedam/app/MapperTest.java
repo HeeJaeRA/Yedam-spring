@@ -56,6 +56,7 @@ public class MapperTest {
 		EmpVO empVO = new EmpVO();
 		empVO.setEmployeeId(207);
 		empVO.setSalary(5);
+//		empVO.setSalary(5200); 값 너무 큼
 		int result = empMapper.updateEmpSal(empVO.getEmployeeId(), empVO);
 		assertNotEquals(result, 0);
 	}

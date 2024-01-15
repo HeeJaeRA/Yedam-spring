@@ -66,6 +66,7 @@
 		<if test="salary >= 0">
 			, salary = #{salary}
 		</if>
+		<!-- setEmployeeId 가 없을때는..? -->
 		<where>
 			<if test="employeeId > 0">
 				employee_id= #{employeeId}
