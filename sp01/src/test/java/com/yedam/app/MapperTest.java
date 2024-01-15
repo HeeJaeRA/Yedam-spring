@@ -39,6 +39,19 @@ public class MapperTest {
 		assertEquals(findVO.getLastName(), "King");
 	}
 
+	// 등록
+	@Test
+	public void insertInfo() {
+		EmpVO empVO = new EmpVO();
+		empVO.setLastName("Hong");
+		empVO.setEmail("kdon@google.com"); // 유니크값
+		empVO.setHireDate(new Date("24/01/15"));
+		empVO.setJobId("IT_PROG");
+		empVO.setSalary(10000);
+		int result = empMapper.insertEmpInfo(empVO);
+		assertNotEquals(result, 0);
+	}
+
 	// 넘긴 값 수정
 	@Test
 	public void updateInfo() {
@@ -60,11 +73,12 @@ public class MapperTest {
 		int result = empMapper.updateEmpSal(empVO.getEmployeeId(), empVO);
 		assertNotEquals(result, 0);
 	}
-
+	
 	// 삭제
 	@Test
 	public void deleteInfo() {
 		int result = empMapper.deleteEmpInfo(207);
 		assertNotEquals(result, 0);
 	}
+
 }
