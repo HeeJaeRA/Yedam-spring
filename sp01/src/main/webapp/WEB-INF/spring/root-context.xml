@@ -23,14 +23,15 @@
 		destroy-method="close">
 		<constructor-arg ref="hikariConfig" />
 	</bean>
-
+	
 	<!-- mybatis SqlSessionFactory -->
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
 	</bean>
 
 	<!-- mapper scan -->
 	<mybatis-spring:scan
-		base-package="com.company.**.mapper" />
+		base-package="com.yedam.app.**.mapper" />
 
 </beans>
