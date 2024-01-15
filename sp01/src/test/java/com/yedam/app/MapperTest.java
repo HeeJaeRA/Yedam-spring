@@ -39,7 +39,7 @@ public class MapperTest {
 		assertEquals(findVO.getLastName(), "King");
 	}
 
-	// 수정
+	// 넘긴 값 수정
 	@Test
 	public void updateInfo() {
 		EmpVO empVO = new EmpVO();
@@ -50,7 +50,7 @@ public class MapperTest {
 		assertNotEquals(result, 0);
 	}
 
-	// 수정
+	// 파라미터 2개 수정
 	@Test
 	public void updateInfoDynamic() {
 		EmpVO empVO = new EmpVO();
@@ -66,5 +66,4 @@ public class MapperTest {
 		int result = empMapper.deleteEmpInfo(207);
 		assertNotEquals(result, 0);
 	}
-
 }
