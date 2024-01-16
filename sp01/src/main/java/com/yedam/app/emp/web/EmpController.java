@@ -21,7 +21,7 @@ public class EmpController {
 	
 	// 여러 개의 서비스 등록 가능
 //	@Autowired
-//	DeptService detpService;
+//	DeptService deptService;
 
 //	GET: 단순 조회, 빈 페이지 호출
 //	POST: 데이터 조작 (등록, 수정, 삭제)
