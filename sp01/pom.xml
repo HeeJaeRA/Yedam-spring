@@ -181,6 +181,22 @@
 			<version>2.0.6</version>
 		</dependency>
 
+
+		<!-- Tiles Setting -->
+		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-core -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-core</artifactId>
+			<version>3.0.8</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-extras -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+			<version>3.0.8</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

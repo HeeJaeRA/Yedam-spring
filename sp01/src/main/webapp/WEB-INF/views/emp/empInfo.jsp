@@ -47,7 +47,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 				<button type="button" onclick="location.href='empList'">목록으로</button>
 				<!-- 페이지 전환 없이(submit 버튼 x) ajax 호출 -->
 				<button type="button" id="updateBtn">수정</button>
-				<button type="button">삭제</button>
+				<button type="button" onclick="location.href='empDelete?eid=${empInfo.employeeId}'">삭제</button>
 			</div>
 		</form>
 		<script>
@@ -61,6 +61,18 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 					.then((response) => response.json())
 					.then((result) => {
 						console.log('쿼리스트링', result);
+					})
+					.catch((err) => console.log(err));
+
+				// JSON 형태(JSON.stringify, content-type 변경)
+				fetch('empUpdateAjax', {
+					method: 'post',
+					headers: { 'content-type': 'application/json' },
+					body: JSON.stringify(empInfo),
+				})
+					.then((response) => response.json())
+					.then((result) => {
+						console.log('JSON', result);
 					})
 					.catch((err) => console.log(err));
 			}
