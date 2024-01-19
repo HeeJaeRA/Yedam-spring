@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
@@ -8,13 +8,13 @@
 		<put-attribute name="header" value="/WEB-INF/views/layout/default_header.jsp"/>
 		<put-attribute name="footer" value="/WEB-INF/views/layout/default_footer.jsp"/>
 	</definition>
-	
+
 	<definition name="*/*" extends="mainTemplate">
-		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
 	</definition>
 	
 	<definition name="home" extends="mainTemplate">
-		<put-attribute name="content" value="/WEB-INF/views/home.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/home.jsp" />
 	</definition>
 	
 </tiles-definitions>

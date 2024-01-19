@@ -16,7 +16,7 @@ public class EmpServiceImpl implements EmpService {
 	
 	@Autowired
 	EmpMapper empMapper;
-	
+
 	@Override
 	public List<EmpVO> getEmpAll() {
 		return empMapper.selectEmpList();
@@ -31,10 +31,10 @@ public class EmpServiceImpl implements EmpService {
 	public int insertEmpInfo(EmpVO empVO) {
 		int result = empMapper.insertEmpInfo(empVO);
 		
-		if (result == 1) {
+		if(result == 1) {
 			return empVO.getEmployeeId();
-		} else {
-			return -1;			
+		}else {
+			return -1;
 		}
 	}
 
@@ -44,14 +44,12 @@ public class EmpServiceImpl implements EmpService {
 		boolean isSuccessed = false;
 		
 		int result = empMapper.updateEmpInfo(empVO);
-		
-		if (result == 1) {
+		if(result == 1) {
 			isSuccessed = true;
 		}
 		
 		map.put("result", isSuccessed);
 		map.put("target", empVO);
-		
 		return map;
 	}
 
@@ -61,5 +59,5 @@ public class EmpServiceImpl implements EmpService {
 		
 		return result == 1 ? true : false;
 	}
-	
+
 }

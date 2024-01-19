@@ -92,6 +92,7 @@
 		</dependency>
 
 		<!-- Servlet -->
+		<!-- 기존의 servlet-api를 교체 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -117,13 +118,6 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>org.bgee.log4jdbc-log4j2</groupId>
-			<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
-			<version>1.16</version>
-		</dependency>
-
 		<!-- spring-test -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -146,6 +140,7 @@
 			<version>2.13.2.2</version>
 		</dependency>
 
+		<!-- Database Setting -->
 		<!-- Database connection pool -->
 		<dependency>
 			<groupId>com.zaxxer</groupId>
@@ -167,6 +162,7 @@
 			<version>19.3.0.0</version>
 		</dependency>
 
+		<!-- Mybatis Setting -->
 		<!-- mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -179,6 +175,13 @@
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>2.0.6</version>
+		</dependency>
+
+		<!-- SQL log -->
+		<dependency>
+			<groupId>org.bgee.log4jdbc-log4j2</groupId>
+			<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+			<version>1.16</version>
 		</dependency>
 
 
@@ -219,8 +222,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
 				<configuration>
-					<source>11</source>
-					<target>11</target>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
 					<compilerArgument>-Xlint:all</compilerArgument>
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>
