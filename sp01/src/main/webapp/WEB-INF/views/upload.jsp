@@ -27,15 +27,15 @@
 				}
 				//실제 업로드 부분
 				/*
-           //fetch
-           fetch('uploadsAjax', {
-        	   method : 'POST',
-        	   body : formData
-           })
-           .then(response => response.json())
-           .then(data => console.log(data))
-           .catch(err => console.log(err));
-           */
+			        //fetch
+			        fetch('uploadsAjax', {
+			     	   method : 'POST',
+			     	   body : formData
+			        })
+			        .then(response => response.json())
+			        .then(data => console.log(data))
+			        .catch(err => console.log(err));
+			        */
 
 				//jQuery.ajax
 				$.ajax({
@@ -45,7 +45,10 @@
 					contentType: false, // multipart/form-data타입을 사용하기위해 false 로 지정합니다.
 					data: formData,
 					success: function (result) {
-						console.log(result);
+						$(result).each((idx, path) => {
+							let tag = $('<img/>').attr('src', '${pageContext.request.contextPath}/images/' + path);
+							$('div').append(tag);
+						});
 					},
 					error: function (reject) {
 						console.log(reject);
