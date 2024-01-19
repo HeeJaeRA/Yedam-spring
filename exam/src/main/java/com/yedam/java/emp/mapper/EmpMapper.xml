@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.java.emp.mapper.EmpMapper">
+	<select id="test" resultType="string">
+		select sysdate from dual
+	</select>
+
+	<select id="getEmp" resultType="empVO">
+		SELECT *
+		FROM EMPLOYEES
+		WHERE EMPLOYEE_ID=#{employeeId}
+	</select>
+
+	<select id="getEmpList" parameterType="empReqVO"
+		resultType="EmpVO">
+		SELECT * FROM EMPLOYEES
+		<where>
+			<if test="employeeId != null and employeeId != ''">
+				and employee_id = #{employeeId}
+			</if>
+			<!-- <if test=""> <foreach collection=""></foreach> </if> -->
+			<if test="jobId != null and jobId != ''">
+				and job_id = #{jobId}
+			</if>
+			<if test="sdt != null">
+				and hire_date >= #{sdt}
+			</if>
+			<if test="edt != null">
+		 		<![CDATA[  and hire_date <= #{edt}   ]]>
+			</if>
+		</where>
+		ORDER BY EMPLOYEE_ID
+	</select>
+
+	<insert id="insert">
+		<selectKey keyProperty="employeeId" order="BEFORE"
+			resultType="string">
+			select nvl(max(employee_id),0)+1 from employees
+		</selectKey>
+		INSERT INTO
+		EMPLOYEES (
+		EMPLOYEE_ID,
+		LAST_NAME,
+		EMAIL,
+		HIRE_DATE,
+		JOB_ID
+		)
+		VALUES (
+		#{employeeId},
+		#{lastName},
+		#{email},
+		#{hireDate},
+		#{jobId}
+		)
+	</insert>
+</mapper>

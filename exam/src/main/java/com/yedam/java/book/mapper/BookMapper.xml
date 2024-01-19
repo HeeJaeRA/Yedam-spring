@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yedam.java.book.mapper.BookMapper">
+
+	<select id="selectBookList" resultType="BookVO">
+		select book_no, book_name, book_coverimg, book_date,
+		book_price,
+		book_publisher, book_info from book_tbl_06 order by book_no
+	</select>
+
+	<insert id="insertBook">
+		<selectKey keyProperty="bookNo" order="BEFORE"
+			resultType="Integer">
+			select nvl(max(book_no),0)+1 from book_tbl_06
+		</selectKey>
+		INSERT INTO book_tbl_06
+		(book_no, book_name, book_coverimg, book_date, book_price, book_publisher, book_info)
+		VALUES (#{bookNo}, #{bookName},	#{bookCoverimg}, #{bookDate}, #{bookPrice}, #{bookPublisher}, #{bookInfo})
+	</insert>
+	
+	<select id="selectRentList" resultType="BookVO">
+		select book_no, book_name, (select sum(rent_price) from rent_tbl_06 where book_no = b.book_no) as rent_price, (select sum(rent_status) from rent_tbl_06 where book_no = b.book_no) as rent_status 
+		from book_tbl_06 b
+	</select>
+
+</mapper>
